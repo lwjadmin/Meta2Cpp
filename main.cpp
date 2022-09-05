@@ -5,8 +5,11 @@
 #include <iomanip>
 #include <string>
 #include <fstream>
+
+#include "FileIO.h"
 #include "main2.h"
 #include "MyFunctions.h"
+#include "Vector.h"
 
 #define string_empty ""
 
@@ -210,8 +213,11 @@ namespace FileIO {
 
 int main(int argc, char* argv[])
 {
-	std::string FileName = "hello.txt";
-	FileIO::FileWrite_CppStyle(FileName.c_str());
-	FileIO::FileOpen_CppStyle(FileName.c_str());
+	//const char* FileName = "Log.txt";
+	//FileIO::FileWrite_CppStyle(FileName);
+	//FileIO::FileOpen_CppStyle(FileName);
+	//FileIO::ManageRecordExample(FileName);
+
+	Vector::Run();
 	return 0;
 }
