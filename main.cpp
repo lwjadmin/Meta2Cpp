@@ -4,6 +4,11 @@ void WorkOffice() {
 }
 void WorkHome() {
 	std::cout << "Work In Home" << std::endl;
+	std::cout << "Work In Home1" << std::endl;
+	std::cout << "Work In Home2" << std::endl;
+	std::cout << "Work In Home3" << std::endl;
+	std::cout << "Work In Home4" << std::endl;
+	std::cout << "Work In Home5" << std::endl;
 }
 
 int main()
