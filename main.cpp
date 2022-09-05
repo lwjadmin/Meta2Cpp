@@ -1,4 +1,6 @@
 #include <iostream>
+#include "main2.h"
+
 void WorkOffice() {
 	std::cout << "Work In Office " << std::endl;
 	std::cout << "Work In Office2 " << std::endl;
@@ -24,6 +26,10 @@ int main()
 
 	WorkOffice();
 	WorkHome();
+
+
+	Run3Home();
+	Run4Home();
 
 	return 0;
 }
