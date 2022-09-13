@@ -139,12 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BaekjoonOJ.cpp" />
     <ClCompile Include="L20220913.cpp" />
     <ClCompile Include="MyFunctions.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="main2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaekjoonOJ.h" />
     <ClInclude Include="FileIO.h" />
     <ClInclude Include="main2.h" />
     <ClInclude Include="MyFunctions.h" />

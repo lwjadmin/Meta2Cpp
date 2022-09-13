@@ -95,7 +95,7 @@ void IsOddEven(int Number) {
 }
 
 //Entry Point
-int main()
+int old_main()
 {
 	int ivalA = 4;
 	int ivalB = 3;
