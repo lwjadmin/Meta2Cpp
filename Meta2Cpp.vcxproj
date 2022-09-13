@@ -144,6 +144,7 @@
     <ClCompile Include="main2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CustomString.h" />
     <ClInclude Include="FileIO.h" />
     <ClInclude Include="main2.h" />
     <ClInclude Include="MyFunctions.h" />
