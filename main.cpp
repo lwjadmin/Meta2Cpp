@@ -211,13 +211,12 @@ namespace FileIO {
 	}
 }
 
-int main(int argc, char* argv[])
-{
-	//const char* FileName = "Log.txt";
-	//FileIO::FileWrite_CppStyle(FileName);
-	//FileIO::FileOpen_CppStyle(FileName);
-	//FileIO::ManageRecordExample(FileName);
-
-	Vector::Run();
-	return 0;
-}
+//int main(int argc, char* argv[])
+//{
+//	//const char* FileName = "Log.txt";
+//	//FileIO::FileWrite_CppStyle(FileName);
+//	//FileIO::FileOpen_CppStyle(FileName);
+//	//FileIO::ManageRecordExample(FileName);
+//	//Vector::Run();
+//	return 0;
+//}
