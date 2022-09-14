@@ -32,7 +32,11 @@
     </ClCompile>
     <ClCompile Include="L20220914.cpp">
       <Filter>소스 파일</Filter>
-    </ClCompile>  </ItemGroup>
+    </ClCompile>
+    <ClCompile Include="L20220914_2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main2.h">
       <Filter>헤더 파일</Filter>
@@ -46,13 +50,11 @@
     <ClInclude Include="Vector.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="CustomString.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="BaekjoonOJ_Home.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="BaekjoonOJ.h">
       <Filter>헤더 파일</Filter>
-    </ClInclude>  </ItemGroup>
+    </ClInclude>
+  </ItemGroup>
 </Project>

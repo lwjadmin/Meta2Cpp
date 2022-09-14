@@ -5,7 +5,7 @@ using namespace	std;
 
 
 
-
-int main() {
-	Prob10430_compare();
+int oold_main()
+{
+    return 0;
 }
