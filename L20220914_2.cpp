@@ -27,7 +27,7 @@ void Swap3(int* First, int* Second)
     *Second = temp;
 }
 
-int main()
+int ooold_main()
 {
     int First = 1;
     int Second = 2;
