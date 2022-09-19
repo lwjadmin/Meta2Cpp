@@ -143,6 +143,14 @@
     <ClCompile Include="L20220913.cpp" />
     <ClCompile Include="L20220914.cpp" />
     <ClCompile Include="L20220914_2.cpp" />
+    <ClCompile Include="L20220919.cpp" />
+    <ClCompile Include="L20220919_3.cpp" />
+    <ClCompile Include="L20220919_3_2.cpp" />
+    <ClCompile Include="L20220919_Global.cpp" />
+    <ClCompile Include="L20220919_Main.cpp" />
+    <ClCompile Include="L20220919_Draw.cpp" />
+    <ClCompile Include="L20220919_Init.cpp" />
+    <ClCompile Include="L20220919_Shuffle.cpp" />
     <ClCompile Include="MyFunctions.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="main2.cpp" />
@@ -151,6 +159,10 @@
     <ClInclude Include="BaekjoonOJ_Home.h" />
     <ClInclude Include="BaekjoonOJ.h" />
     <ClInclude Include="FileIO.h" />
+    <ClInclude Include="L20220919_Draw.h" />
+    <ClInclude Include="L20220919_Global.h" />
+    <ClInclude Include="L20220919_Init.h" />
+    <ClInclude Include="L20220919_Shuffle.h" />
     <ClInclude Include="main2.h" />
     <ClInclude Include="MyFunctions.h" />
     <ClInclude Include="Vector.h" />

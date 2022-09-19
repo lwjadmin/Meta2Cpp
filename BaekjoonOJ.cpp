@@ -1,12 +1,8 @@
 ﻿#include <iostream>
 
-
 using namespace	std;
 
-
-
-int main()
+int oldoldoldold_main()
 {
-    Prob1065_Hansu();
-
+    return 0;
 }
