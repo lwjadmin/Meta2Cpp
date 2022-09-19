@@ -568,3 +568,42 @@ void Prob4673_SelfNumber()
 		if (arr[i] == false) { cout << i << endl; }
 	}
 }
+
+bool Prob1065_isHansu(int number)
+{
+	bool isHansu = true;
+	vector<int> v;
+
+	if (number >= 10)
+	{
+		while (true)
+		{
+			if (number == 0) { break; }
+			v.insert(v.begin(), (number % 10));
+			number /= 10;
+		}
+		int gongcha = v[1] - v[0];
+		for (int i = 1; i < v.size() - 1; i++)
+		{
+			if ((v[i + 1] - v[i]) != gongcha)
+			{
+				isHansu = false;
+				break;
+			}
+		}
+	}
+	return isHansu;
+}
+
+void Prob1065_Hansu()
+{
+	int nCount = 0;
+	cin >> nCount;
+
+	int hansuCnt = 0;
+	for (int i = 1; i <= nCount; i++)
+	{
+		hansuCnt = Prob1065_isHansu(i) ? (hansuCnt + 1) : hansuCnt;
+	}
+	cout << hansuCnt << endl;
+}
