@@ -150,9 +150,11 @@ namespace LectureLWJ
 
     int PressAnyKeyToContinue()
     {
+        int retval = 0;
         PrintConsoleSystemInfo();
         cout << "계속하려면 아무 키나 누르세요/[ESC]키를 누르면 종료합니다." << endl;
-        return _getch();
+        retval = _getch();
+        return retval;
     }
 
     int L20220920_1_main()
@@ -261,3 +263,4 @@ namespace LectureKHU
         return 0;
     }
 }
+

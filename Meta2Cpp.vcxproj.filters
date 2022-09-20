@@ -13,90 +13,99 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\Lecture">
+      <UniqueIdentifier>{7d79b034-aaa0-4ebe-a5c2-5eca3b033b3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Baekjoon">
+      <UniqueIdentifier>{0a9e84fb-39c9-4801-b543-a6f84b0be535}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\MyStudy">
+      <UniqueIdentifier>{d580f4bc-497f-4ee7-8bca-32659af7a639}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Lecture">
+      <UniqueIdentifier>{90cb6313-fdb5-46df-ad02-408f6ceed09e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Baekjoon">
+      <UniqueIdentifier>{ef12e191-98cf-42a7-b6c4-0e917d357169}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\MyStudy">
+      <UniqueIdentifier>{efc0e7cb-bb7c-4f24-a973-e9ef10bcc359}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="main2.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="MyFunctions.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="L20220913.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="BaekjoonOJ.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\Lecture</Filter>
     </ClCompile>
     <ClCompile Include="L20220914.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\Lecture</Filter>
     </ClCompile>
     <ClCompile Include="L20220914_2.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\Lecture</Filter>
     </ClCompile>
     <ClCompile Include="L20220919.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="L20220919_Main.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="L20220919_Draw.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="L20220919_Init.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="L20220919_Shuffle.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="L20220919_Global.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\Lecture</Filter>
     </ClCompile>
     <ClCompile Include="L20220919_3.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\Lecture</Filter>
     </ClCompile>
     <ClCompile Include="L20220919_3_2.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\Lecture</Filter>
+    </ClCompile>
+    <ClCompile Include="L20220919_Draw.cpp">
+      <Filter>소스 파일\Lecture</Filter>
+    </ClCompile>
+    <ClCompile Include="L20220919_Global.cpp">
+      <Filter>소스 파일\Lecture</Filter>
+    </ClCompile>
+    <ClCompile Include="L20220919_Init.cpp">
+      <Filter>소스 파일\Lecture</Filter>
+    </ClCompile>
+    <ClCompile Include="L20220919_Main.cpp">
+      <Filter>소스 파일\Lecture</Filter>
+    </ClCompile>
+    <ClCompile Include="L20220919_Shuffle.cpp">
+      <Filter>소스 파일\Lecture</Filter>
     </ClCompile>
     <ClCompile Include="L20220920_1.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\Lecture</Filter>
     </ClCompile>
     <ClCompile Include="L20220920_2.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\Lecture</Filter>
+    </ClCompile>
+    <ClCompile Include="BaekjoonOJ.cpp">
+      <Filter>소스 파일\Baekjoon</Filter>
+    </ClCompile>
+    <ClCompile Include="filestreamtest.cpp">
+      <Filter>소스 파일\MyStudy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="main2.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="MyFunctions.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="FileIO.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="BaekjoonOJ.h">
+      <Filter>헤더 파일\Baekjoon</Filter>
     </ClInclude>
     <ClInclude Include="BaekjoonOJ_Home.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="BaekjoonOJ.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\Baekjoon</Filter>
     </ClInclude>
     <ClInclude Include="L20220919_Draw.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="L20220919_Init.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="L20220919_Shuffle.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\Lecture</Filter>
     </ClInclude>
     <ClInclude Include="L20220919_Global.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\Lecture</Filter>
+    </ClInclude>
+    <ClInclude Include="L20220919_Init.h">
+      <Filter>헤더 파일\Lecture</Filter>
+    </ClInclude>
+    <ClInclude Include="L20220919_Shuffle.h">
+      <Filter>헤더 파일\Lecture</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>헤더 파일\MyStudy</Filter>
+    </ClInclude>
+    <ClInclude Include="FileIO.h">
+      <Filter>헤더 파일\MyStudy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

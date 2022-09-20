@@ -233,7 +233,3 @@ namespace LectureKHU
 }
 
 
-//int main()
-//{
-//    return LectureKHU::L20220920_2_main();
-//}
