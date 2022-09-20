@@ -2,7 +2,8 @@
 
 using namespace	std;
 
-int oldoldoldold_main()
+int main()
 {
+    cout << "hello" << endl;
     return 0;
 }

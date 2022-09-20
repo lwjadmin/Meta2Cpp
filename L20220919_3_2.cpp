@@ -36,7 +36,7 @@ int* ResizeDynamicArray(int* pArr, int prevsize, int newsize)
     return pArr2;
 }
 
-int main()
+int L20220919_3_2_main()
 {
     int* pArr = nullptr;
     int size = 10;

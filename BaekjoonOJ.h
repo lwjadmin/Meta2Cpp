@@ -607,3 +607,44 @@ void Prob1065_Hansu()
 	}
 	cout << hansuCnt << endl;
 }
+
+void Prob1712_BreakEvenPoint()
+{
+	int a = 0;
+	int b = 0;
+	int c = 0;
+	int n = 1;
+
+	cin >> a >> b >> c;
+	if (b >= c) { cout << -1 << endl; }
+	else
+	{
+		cout << (a / (c - b)) + 1 << endl;
+		//while (true)
+		//{
+		//    if (n > a / (c - b)) //실제로는 오래걸릴수 있음..
+		//    { 
+		//        cout << n;
+		//        break;
+		//    }
+		//    n++;
+		//}
+	}
+}
+
+void Prob2292_HoneyComb()
+{
+	int number = 0;
+	int sum = 1;
+	int cnt = 1;
+	cin >> number;
+	while (true)
+	{
+		if (sum >= number)
+		{
+			cout << cnt << endl;
+			break;
+		}
+		sum += (6 * cnt++);
+	}
+}
