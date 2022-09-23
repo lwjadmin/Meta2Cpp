@@ -100,9 +100,8 @@ void CheckIntDoubleArray()
     }
 }
 
-int main(int argc, char* argv[])
+void Run1()
 {
-    
     int number = 5;
     cout << "[stack] int 변수 number의 크기 : " << sizeof(number) << endl;
     cout << "[stack] int 변수 number의 값 : " << number << endl;
@@ -155,5 +154,20 @@ int main(int argc, char* argv[])
         cout << "carr[" << i << "] 주소 = 0x" << (&carr + i) << endl;
     }
 
+}
+
+
+
+void PrintArray(int* arr,int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        cout << arr[i] << (i != size - 1 ? "," : "\n");
+    }
+}
+
+
+int main(int argc, char* argv[])
+{
     return 0;
 }
