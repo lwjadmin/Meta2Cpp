@@ -167,7 +167,7 @@ void PrintArray(int* arr,int size)
 }
 
 
-int main(int argc, char* argv[])
+int main_main(int argc, char* argv[])
 {
     return 0;
 }

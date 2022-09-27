@@ -81,6 +81,27 @@
     <ClCompile Include="filestreamtest.cpp">
       <Filter>소스 파일\MyStudy</Filter>
     </ClCompile>
+    <ClCompile Include="L20220926_1.cpp">
+      <Filter>소스 파일\Lecture</Filter>
+    </ClCompile>
+    <ClCompile Include="L20220926_2.cpp">
+      <Filter>소스 파일\Lecture</Filter>
+    </ClCompile>
+    <ClCompile Include="L20220926_FPlayer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="L20220926_FWall.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="L20220926_FGoal.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="L20220926_FFloor.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="L20220926_FWorld.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaekjoonOJ.h">
@@ -106,6 +127,24 @@
     </ClInclude>
     <ClInclude Include="FileIO.h">
       <Filter>헤더 파일\MyStudy</Filter>
+    </ClInclude>
+    <ClInclude Include="L20220926.h">
+      <Filter>헤더 파일\Lecture</Filter>
+    </ClInclude>
+    <ClInclude Include="L20220926_FPlayer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="L20220926_FWall.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="L20220926_FGoal.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="L20220926_FFloor.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="L20220926_FWorld.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

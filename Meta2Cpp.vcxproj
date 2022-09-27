@@ -154,6 +154,13 @@
     <ClCompile Include="L20220919_Shuffle.cpp" />
     <ClCompile Include="L20220920_1.cpp" />
     <ClCompile Include="L20220920_2.cpp" />
+    <ClCompile Include="L20220926_1.cpp" />
+    <ClCompile Include="L20220926_2.cpp" />
+    <ClCompile Include="L20220926_FFloor.cpp" />
+    <ClCompile Include="L20220926_FGoal.cpp" />
+    <ClCompile Include="L20220926_FPlayer.cpp" />
+    <ClCompile Include="L20220926_FWall.cpp" />
+    <ClCompile Include="L20220926_FWorld.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +171,12 @@
     <ClInclude Include="L20220919_Global.h" />
     <ClInclude Include="L20220919_Init.h" />
     <ClInclude Include="L20220919_Shuffle.h" />
+    <ClInclude Include="L20220926.h" />
+    <ClInclude Include="L20220926_FFloor.h" />
+    <ClInclude Include="L20220926_FGoal.h" />
+    <ClInclude Include="L20220926_FPlayer.h" />
+    <ClInclude Include="L20220926_FWall.h" />
+    <ClInclude Include="L20220926_FWorld.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
