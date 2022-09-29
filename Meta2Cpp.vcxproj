@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="TDGame.cpp" />
     <ClCompile Include="BaekjoonOJ.cpp" />
     <ClCompile Include="filestreamtest.cpp" />
     <ClCompile Include="L20220913.cpp" />

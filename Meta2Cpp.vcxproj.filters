@@ -31,6 +31,12 @@
     <Filter Include="헤더 파일\MyStudy">
       <UniqueIdentifier>{efc0e7cb-bb7c-4f24-a973-e9ef10bcc359}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Game">
+      <UniqueIdentifier>{d934fe44-8730-4efe-a3e1-944055470300}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Game">
+      <UniqueIdentifier>{abd912f5-a5c2-4f49-8cf6-277e7a214576}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -87,20 +93,23 @@
     <ClCompile Include="L20220926_2.cpp">
       <Filter>소스 파일\Lecture</Filter>
     </ClCompile>
-    <ClCompile Include="L20220926_FPlayer.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="L20220926_FWall.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="L20220926_FGoal.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="L20220926_FWorld.cpp">
+      <Filter>소스 파일\Lecture</Filter>
     </ClCompile>
     <ClCompile Include="L20220926_FFloor.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\Lecture</Filter>
     </ClCompile>
-    <ClCompile Include="L20220926_FWorld.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="L20220926_FGoal.cpp">
+      <Filter>소스 파일\Lecture</Filter>
+    </ClCompile>
+    <ClCompile Include="L20220926_FPlayer.cpp">
+      <Filter>소스 파일\Lecture</Filter>
+    </ClCompile>
+    <ClCompile Include="L20220926_FWall.cpp">
+      <Filter>소스 파일\Lecture</Filter>
+    </ClCompile>
+    <ClCompile Include="TDGame.cpp">
+      <Filter>소스 파일\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -131,20 +140,20 @@
     <ClInclude Include="L20220926.h">
       <Filter>헤더 파일\Lecture</Filter>
     </ClInclude>
-    <ClInclude Include="L20220926_FPlayer.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="L20220926_FWall.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="L20220926_FFloor.h">
+      <Filter>헤더 파일\Lecture</Filter>
     </ClInclude>
     <ClInclude Include="L20220926_FGoal.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\Lecture</Filter>
     </ClInclude>
-    <ClInclude Include="L20220926_FFloor.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="L20220926_FPlayer.h">
+      <Filter>헤더 파일\Lecture</Filter>
+    </ClInclude>
+    <ClInclude Include="L20220926_FWall.h">
+      <Filter>헤더 파일\Lecture</Filter>
     </ClInclude>
     <ClInclude Include="L20220926_FWorld.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\Lecture</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
