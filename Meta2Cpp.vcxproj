@@ -139,7 +139,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="TDGame.cpp" />
+    <ClCompile Include="Character.cpp" />
+    <ClCompile Include="FC2DActor.cpp" />
+    <ClCompile Include="FC2DGameWorld.cpp" />
+    <ClCompile Include="FC2DMonster.cpp" />
+    <ClCompile Include="FC2DPlayer.cpp" />
+    <ClCompile Include="L20221005_1.cpp" />
+    <ClCompile Include="Pixel.cpp" />
+    <ClCompile Include="L20221004_1.cpp" />
+    <ClCompile Include="L20221004_2.cpp" />
+    <ClCompile Include="MonsterFSM.cpp" />
+    <ClCompile Include="State.cpp" />
+    <ClCompile Include="C2DGameMain.cpp" />
     <ClCompile Include="BaekjoonOJ.cpp" />
     <ClCompile Include="filestreamtest.cpp" />
     <ClCompile Include="L20220913.cpp" />
@@ -163,11 +174,23 @@
     <ClCompile Include="L20220926_FWall.cpp" />
     <ClCompile Include="L20220926_FWorld.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Transition.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaekjoonOJ_Home.h" />
     <ClInclude Include="BaekjoonOJ.h" />
+    <ClInclude Include="EC2DDefine.h" />
+    <ClInclude Include="Character.h" />
+    <ClInclude Include="CustomStack.h" />
+    <ClInclude Include="FC2DActor.h" />
+    <ClInclude Include="FC2DGameState.h" />
+    <ClInclude Include="FC2DGameWorld.h" />
+    <ClInclude Include="FC2DMonster.h" />
+    <ClInclude Include="FC2DPlayer.h" />
     <ClInclude Include="FileIO.h" />
+    <ClInclude Include="FVector.h" />
+    <ClInclude Include="GC2DFunctions.h" />
+    <ClInclude Include="Pixel.h" />
     <ClInclude Include="L20220919_Draw.h" />
     <ClInclude Include="L20220919_Global.h" />
     <ClInclude Include="L20220919_Init.h" />
@@ -178,7 +201,11 @@
     <ClInclude Include="L20220926_FPlayer.h" />
     <ClInclude Include="L20220926_FWall.h" />
     <ClInclude Include="L20220926_FWorld.h" />
+    <ClInclude Include="MonsterFSM.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="Transition.h" />
     <ClInclude Include="Vector.h" />
+    <ClInclude Include="XLClass.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

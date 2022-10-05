@@ -37,6 +37,12 @@
     <Filter Include="헤더 파일\Game">
       <UniqueIdentifier>{abd912f5-a5c2-4f49-8cf6-277e7a214576}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\Lecture\Class">
+      <UniqueIdentifier>{a74afee3-ab5e-4993-a9f3-2e89a007203f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Lecture\Class">
+      <UniqueIdentifier>{1ffcd014-002b-4864-98d9-2ce54d9cf55e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -108,7 +114,43 @@
     <ClCompile Include="L20220926_FWall.cpp">
       <Filter>소스 파일\Lecture</Filter>
     </ClCompile>
-    <ClCompile Include="TDGame.cpp">
+    <ClCompile Include="C2DGameMain.cpp">
+      <Filter>소스 파일\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="L20221004_1.cpp">
+      <Filter>소스 파일\Lecture</Filter>
+    </ClCompile>
+    <ClCompile Include="L20221004_2.cpp">
+      <Filter>소스 파일\Lecture</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterFSM.cpp">
+      <Filter>소스 파일\Lecture\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>소스 파일\Lecture\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="Transition.cpp">
+      <Filter>소스 파일\Lecture\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="Pixel.cpp">
+      <Filter>소스 파일\Lecture\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>소스 파일\Lecture\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="L20221005_1.cpp">
+      <Filter>소스 파일\Lecture</Filter>
+    </ClCompile>
+    <ClCompile Include="FC2DActor.cpp">
+      <Filter>소스 파일\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="FC2DGameWorld.cpp">
+      <Filter>소스 파일\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="FC2DPlayer.cpp">
+      <Filter>소스 파일\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="FC2DMonster.cpp">
       <Filter>소스 파일\Game</Filter>
     </ClCompile>
   </ItemGroup>
@@ -154,6 +196,51 @@
     </ClInclude>
     <ClInclude Include="L20220926_FWorld.h">
       <Filter>헤더 파일\Lecture</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>헤더 파일\Lecture\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="Pixel.h">
+      <Filter>헤더 파일\Lecture\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterFSM.h">
+      <Filter>헤더 파일\Lecture\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>헤더 파일\Lecture\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="Transition.h">
+      <Filter>헤더 파일\Lecture\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="XLClass.h">
+      <Filter>헤더 파일\Lecture\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomStack.h">
+      <Filter>헤더 파일\Lecture\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="EC2DDefine.h">
+      <Filter>헤더 파일\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="FC2DGameWorld.h">
+      <Filter>헤더 파일\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="FC2DActor.h">
+      <Filter>헤더 파일\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="FC2DMonster.h">
+      <Filter>헤더 파일\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="FC2DPlayer.h">
+      <Filter>헤더 파일\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="FC2DGameState.h">
+      <Filter>헤더 파일\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GC2DFunctions.h">
+      <Filter>헤더 파일\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="FVector.h">
+      <Filter>헤더 파일\Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
