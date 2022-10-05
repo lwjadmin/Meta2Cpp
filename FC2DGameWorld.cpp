@@ -126,32 +126,33 @@ void FC2DGameWorld::SwapMapTile(int* A, int* B)
 
 void FC2DGameWorld::Process(char InputKey, FC2DGameState& GameState)
 {
+    bool KeyValid = true;
     switch (InputKey)
     {
         case 'D':
         case 'd':
-        case 77: //[¢º], MoveRight
+        //case 77: //[¢º], MoveRight
         {
             Player->Move(EMoveDirection::East);
             break;
         }
         case 'S':
         case 's':
-        case 80: //[¡å], MoveDown
+        //case 80: //[¡å], MoveDown
         {
             Player->Move(EMoveDirection::South);
             break;
         }
         case 'A':
         case 'a':
-        case 75: //[¢¸], MoveLeft
+        //case 75: //[¢¸], MoveLeft
         {
             Player->Move(EMoveDirection::West);
             break;
         }
         case 'W':
         case 'w':
-        case 72: //[¡ã], MoveUp
+        //case 72: //[¡ã], MoveUp
         {
             Player->Move(EMoveDirection::North);
             break;
@@ -163,11 +164,15 @@ void FC2DGameWorld::Process(char InputKey, FC2DGameState& GameState)
         }
         case 27: //[End]
         {
-            cout << "End!!" << endl;
             GameState.GameStatus = EGameStatus::END;
             break;
         }
+        default:
+        {
+            KeyValid = false;
+        }
     }
+    if (!KeyValid) { return; }
 
     for (int i = MonsterPool.size() - 1; i >= 0; i--) 
     {
@@ -199,5 +204,6 @@ void FC2DGameWorld::Process(char InputKey, FC2DGameState& GameState)
 
 FC2DGameWorld::~FC2DGameWorld()
 {
-    delete[] Map;
+    SAFE_DELETE_ARRAY(Map);
+    SAFE_DELETE(Player);
 }
