@@ -1,15 +1,20 @@
 #include "FC2DActor.h"
 #include "FC2DGameWorld.h"
 
-FC2DActor::FC2DActor() : PosX(0), PosY(0), ParentWorld(nullptr)
+FC2DActor::FC2DActor() 
 {
-
+    ActorType = EActorType::Unknown;
+    PosX = 0;
+    PosY = 0;
+    ParentWorld = nullptr;
 }
 
-FC2DActor::FC2DActor(int InPosX, int InPosY, FC2DGameWorld* InFC2DGameWorld)
-    : PosX(InPosX), PosY(InPosY), ParentWorld(InFC2DGameWorld)
+FC2DActor::FC2DActor(EActorType InActorType,int InPosX, int InPosY, FC2DGameWorld* InFC2DGameWorld)
 {
-
+    ActorType = InActorType;
+    PosX = InPosX;
+    PosY = InPosY;
+    ParentWorld = InFC2DGameWorld;
 }
 
 void FC2DActor::SetPosition(int InPosX, int InPosY)
@@ -27,7 +32,7 @@ void FC2DActor::Move(EMoveDirection Direction)
             int newPosY = PosY - 1;
             int* prevMapTile = ParentWorld->GetMapTile(PosX, PosY);
             int* nextMapTile = ParentWorld->GetMapTile(PosX, newPosY);
-            if (*nextMapTile == (int)EMapType::Floor)
+            if (*nextMapTile == (int)EActorType::Floor)
             {
                 ParentWorld->SwapMapTile(prevMapTile, nextMapTile);
                 PosY = newPosY;
@@ -39,7 +44,7 @@ void FC2DActor::Move(EMoveDirection Direction)
             int newPosX = PosX + 1;
             int* prevMapTile = ParentWorld->GetMapTile(PosX, PosY);
             int* nextMapTile = ParentWorld->GetMapTile(newPosX, PosY);
-            if (*nextMapTile == (int)EMapType::Floor)
+            if (*nextMapTile == (int)EActorType::Floor)
             {
                 ParentWorld->SwapMapTile(prevMapTile, nextMapTile);
                 PosX = newPosX;
@@ -51,7 +56,7 @@ void FC2DActor::Move(EMoveDirection Direction)
             int newPosY = PosY + 1;
             int* prevMapTile = ParentWorld->GetMapTile(PosX, PosY);
             int* nextMapTile = ParentWorld->GetMapTile(PosX, newPosY);
-            if (*nextMapTile == (int)EMapType::Floor)
+            if (*nextMapTile == (int)EActorType::Floor)
             {
                 ParentWorld->SwapMapTile(prevMapTile, nextMapTile);
                 PosY = newPosY;
@@ -63,7 +68,7 @@ void FC2DActor::Move(EMoveDirection Direction)
             int newPosX = PosX - 1;
             int* prevMapTile = ParentWorld->GetMapTile(PosX, PosY);
             int* nextMapTile = ParentWorld->GetMapTile(newPosX, PosY);
-            if (*nextMapTile == (int)EMapType::Floor)
+            if (*nextMapTile == (int)EActorType::Floor)
             {
                 ParentWorld->SwapMapTile(prevMapTile, nextMapTile);
                 PosX = newPosX;

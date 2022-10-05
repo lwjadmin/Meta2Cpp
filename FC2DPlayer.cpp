@@ -20,11 +20,14 @@ void FC2DPlayer::InitPlayer(int InHP, int InForce, int InGold)
 
 void FC2DPlayer::Attack()
 {
-    //Target->HP -= Force;
-    //if (Target->isAlive && Target->HP < 0)
-    //{
-    //    Target->isAlive = false;
-    //    Target->HP = 0;
-    //    Gold += Target->Gold;
-    //}
+    for (auto monster = ParentWorld->MonsterPool.begin(); monster != ParentWorld->MonsterPool.end(); monster++)
+    {
+        double distance = sqrt(pow((this->PosX - monster->PosX), 2) + pow((this->PosY - monster->PosY), 2));
+        if (monster->isAlive && (AttackRange > distance))
+        {
+            monster->isAlive = false;
+            MonsterKillCount++;
+            this->Gold += monster->Gold;
+        }
+    }
 }

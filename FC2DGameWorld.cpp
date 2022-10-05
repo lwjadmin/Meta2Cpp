@@ -11,6 +11,7 @@ FC2DGameWorld::FC2DGameWorld()
     MapYRows = 20;
     Tick = 0;
     Player = nullptr;
+    ProcessAFMessage = "";
 }
 
 void FC2DGameWorld::Init()
@@ -25,17 +26,17 @@ void FC2DGameWorld::Init()
             int* MapTile = &Map[(y * MapXCols) + x];
             if (y == 0 || y == MapYRows-1)
             {
-                *MapTile = (int)EMapType::Wall;
+                *MapTile = (int)EActorType::Wall;
             }
             else
             {
                 if (x == 0 || x == MapXCols-1)
                 {
-                    *MapTile = (int)EMapType::Wall;
+                    *MapTile = (int)EActorType::Wall;
                 }
                 else
                 {
-                    *MapTile = (int)EMapType::Floor;
+                    *MapTile = (int)EActorType::Floor;
                 }
             }
         }
@@ -53,7 +54,7 @@ void FC2DGameWorld::SpawnCharacter()
 {
     Player = new FC2DPlayer(this);
     Player->SetPosition(1, 1);
-    *GetMapTile(1, 1) = (int)EMapType::Player;
+    *GetMapTile(1, 1) = (int)EActorType::Player;
 }
 
 void FC2DGameWorld::SpawnMonster()
@@ -62,7 +63,7 @@ void FC2DGameWorld::SpawnMonster()
     {
         int NewPosX = GetRandNumber(0, MapXCols);
         int NewPosY = GetRandNumber(0, MapYRows);
-        if (*GetMapTile(NewPosX, NewPosY) == (int)EMapType::Floor)
+        if (*GetMapTile(NewPosX, NewPosY) == (int)EActorType::Floor)
         {
             FC2DMonster monster(this);
             monster.InitMonster
@@ -70,10 +71,11 @@ void FC2DGameWorld::SpawnMonster()
                 GetRandNumber(50, 100),
                 GetRandNumber(100, 200),
                 GetRandNumber(2, 10),
+                2,
                 (EMonsterType)GetRandNumber((int)EMonsterType::Goblin, (int)EMonsterType::Hog)
             );
             monster.SetPosition(NewPosX, NewPosY);
-            *GetMapTile(NewPosX, NewPosY) = (int)EMapType::Monster;
+            *GetMapTile(NewPosX, NewPosY) = (int)EActorType::Monster;
             MonsterPool.push_back(monster);
             break;
         }
@@ -86,6 +88,7 @@ void FC2DGameWorld::Draw()
     cout << "[SYS] Player HP : " << Player->HP << endl;
     cout << "[SYS] Player Gold : " << Player->Gold << endl;
     cout << "[SYS] Monster Count : " << MonsterPool.size() << endl;
+    cout << "[SYS] Monster Kill Count : " << Player->MonsterKillCount << endl;
     cout << "[SYS] Tick : " << Tick << endl;
 
     for (int y = 0; y < MapYRows; y++)
@@ -95,14 +98,15 @@ void FC2DGameWorld::Draw()
             int* MapTile = &Map[(y * MapXCols) + x];
             switch (*MapTile)
             {
-                case (int)EMapType::Wall: { cout << "¡á"; break; }
-                case (int)EMapType::Floor: { cout << "  "; break; }
-                case (int)EMapType::Player: { cout << "¡Ú"; break; }
-                case (int)EMapType::Monster: { cout << "¡Ù"; break;  }
+                case (int)EActorType::Wall: { cout << "¡á"; break; }
+                case (int)EActorType::Floor: { cout << "  "; break; }
+                case (int)EActorType::Player: { cout << "¡Ú"; break; }
+                case (int)EActorType::Monster: { cout << "¡Ù"; break;  }
             }
         }
         cout << endl;
     }
+    cout << ProcessAFMessage << endl;
     Tick++;
 }
 
@@ -164,12 +168,28 @@ void FC2DGameWorld::Process(char InputKey, FC2DGameState& GameState)
             break;
         }
     }
-    for (auto it = MonsterPool.begin(); it != MonsterPool.end(); it++)
+
+    for (int i = MonsterPool.size() - 1; i >= 0; i--) 
     {
-        FC2DMonster* monster = &(*it);
-        EMoveDirection newDirection = (EMoveDirection)(GetRandNumber(0, 3) * 90);
-        monster->Move(newDirection);
+        FC2DMonster* monster = &MonsterPool[i];
+        if (!monster->isAlive)
+        {
+            monster->Dead();
+            MonsterPool.erase(MonsterPool.begin() + i);
+        }
+        else
+        {
+            EMoveDirection newDirection = (EMoveDirection)(GetRandNumber(0, 3) * 90);
+            monster->Move(newDirection);
+            monster->Attack(Player);
+        }
     }
+    if (!Player->isAlive)
+    {
+        GameState.GameStatus = EGameStatus::END;
+        return;
+    }
+
     if (Tick > 10)
     {
         Tick = 0;

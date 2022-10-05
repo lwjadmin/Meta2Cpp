@@ -9,6 +9,8 @@ public:
     int Force;
     int Gold;
     bool isAlive;
+    const int AttackRange = 5;
+    int MonsterKillCount = 0;
     FC2DGameWorld* InFC2DGameWorld;
 
     FC2DPlayer(FC2DGameWorld* InFC2DGameWorld);

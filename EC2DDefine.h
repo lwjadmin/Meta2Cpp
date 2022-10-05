@@ -1,10 +1,12 @@
 #pragma once
 #include <conio.h>
 
+#include <cmath>
 #include <iostream>
 #include <string>
 #include <vector>
 #include <map>
+
 
 using namespace std;
 
@@ -24,7 +26,7 @@ enum class EMonsterType : int
     Hog = 3,
 };
 
-enum class EMapType : int
+enum class EActorType : int
 {
     Unknown = 0,
     Wall = 1,
@@ -41,3 +43,6 @@ enum class EGameStatus : int
     STOP = 3,
     END = 4
 };
+
+#define SAFE_DELETE(x) { if(x){delete(x); (x) = nullptr;} } 
+#define SAFE_DELETE_ARRAY(x) { if(x){delete[](x); (x)=nullptr;} }

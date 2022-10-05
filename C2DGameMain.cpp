@@ -15,6 +15,7 @@ int C2DGameMain()
         GMWorld.Process(_getch(), GMState);
         if (GMState.GameStatus == EGameStatus::END)
         {
+            cout << "YOU DIED!!!!" << endl;
             break;
         }
     }

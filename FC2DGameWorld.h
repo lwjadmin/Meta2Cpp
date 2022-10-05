@@ -13,6 +13,7 @@ public:
     int MapXCols;
     FC2DPlayer* Player;
     vector<FC2DMonster> MonsterPool;
+    string ProcessAFMessage;
     int Tick;
 
     FC2DGameWorld();
