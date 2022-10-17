@@ -112,8 +112,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
-      <Command>rem xcopy /y $(SolutionDir)SDL2\lib\x64\SDL2.dll $(OutDir)
-copy /y $(SolutionDir)SDL2\lib\x64\SDL2.dll $(OutDir)</Command>
+      <Command>rem copy /y $(SolutionDir)SDL2\lib\x64\SDL2.dll $(OutDir)</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -138,6 +137,8 @@ copy /y $(SolutionDir)SDL2\lib\x64\SDL2.dll $(OutDir)</Command>
     <ClCompile Include="Floor.cpp" />
     <ClCompile Include="Goal.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="MyEngine.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Wall.cpp" />
     <ClCompile Include="World.cpp" />
@@ -145,10 +146,10 @@ copy /y $(SolutionDir)SDL2\lib\x64\SDL2.dll $(OutDir)</Command>
   <ItemGroup>
     <ClInclude Include="Actor.h" />
     <ClInclude Include="Engine.h" />
-    <ClInclude Include="Enum.h" />
     <ClInclude Include="Floor.h" />
     <ClInclude Include="Goal.h" />
-    <ClInclude Include="main.h" />
+    <ClInclude Include="Monster.h" />
+    <ClInclude Include="MyEngine.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Wall.h" />
     <ClInclude Include="World.h" />

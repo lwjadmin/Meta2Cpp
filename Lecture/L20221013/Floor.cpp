@@ -3,15 +3,18 @@
 AFloor::AFloor()
 {
 	Shape = ' ';
+	ZOrder = 10;
+	MyColor = { 100, 0, 0, 0 };
+	LoadBMP("Data/floor.bmp");
 }
 
-AFloor::AFloor(int InX, int InY) : AFloor()
+AFloor::AFloor(int NewX, int NewY)
+	: AFloor()
 {
-	X = InX;
-	Y = InY;
+	X = NewX;
+	Y = NewY;
 }
 
 AFloor::~AFloor()
 {
-
 }

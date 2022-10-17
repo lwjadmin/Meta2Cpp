@@ -1,18 +1,23 @@
 #pragma once
 #include "Actor.h"
-#include "Enum.h"
+
 
 class APlayer : public AActor
 {
 public:
 	APlayer();
-	APlayer(int InX, int InY);
-	void Tick();
-	void OnPressKey(int KeyCode);
-	void Move(MoveDirection direction);
-	void CollisionCheck(int newX, int newY);
-	virtual ~APlayer();
-private:
-	int InputKeyCode;
+	APlayer(int NewX, int NewY);
+
+	~APlayer();
+
+	virtual void Tick() override;
+	bool PredictCanMove();
+	virtual void Render() override;
+
+	int RenderPosX;
+	int RenderPosY;
+	Uint64 ElapsedTime = 0;
+	Uint64 ExecuteTime = 0;
+
 };
 

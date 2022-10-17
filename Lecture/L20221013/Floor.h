@@ -5,7 +5,7 @@ class AFloor : public AActor
 {
 public:
 	AFloor();
-	AFloor(int InX, int InY);
-	virtual ~AFloor();
+	AFloor(int NewX, int NewY);
+	~AFloor();
 };
 

@@ -3,12 +3,17 @@
 AWall::AWall()
 {
 	Shape = '*';
+	ZOrder = 20;
+	CollisionType = ECollisionType::PhysicsOnly;
+	MyColor = { 0, 0, 0, 0 };
+	LoadBMP("Data/wall.bmp");
 }
 
-AWall::AWall(int InX, int InY) : AWall()
+AWall::AWall(int NewX, int NewY)
+	: AWall()
 {
-	X = InX;
-	Y = InY;
+	X = NewX;
+	Y = NewY;
 }
 
 AWall::~AWall()
