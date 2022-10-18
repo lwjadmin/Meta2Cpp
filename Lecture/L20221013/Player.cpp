@@ -1,6 +1,7 @@
 #include "Player.h"
 #include <iostream>
 #include "MyEngine.h"
+#include "SoundActor.h"
 
 using namespace std;
 
@@ -39,10 +40,16 @@ void APlayer::Tick()
 	}
 	
 
-	if (GEngine->MyEvent.type != SDL_KEYDOWN)
+	if (!GEngine->MyGameState->bPlayerCanMove || GEngine->MyEvent.type != SDL_KEYDOWN)
 	{
 		return;
 	}
+
+	ASoundActor* MoveSound = new ASoundActor("./data/move.wav", false);
+	GEngine->SpawnActor(MoveSound);
+	MoveSound->Play();
+	
+
 
 	switch (GEngine->MyEvent.key.keysym.sym)
 	{

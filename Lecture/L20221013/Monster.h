@@ -13,4 +13,5 @@ public:
 	virtual bool CheckHit(AActor* Other) override;
 	Uint64 ElapsedTime = 0;
 	Uint64 ExecuteTime = 0;
+	bool bTouched;
 };

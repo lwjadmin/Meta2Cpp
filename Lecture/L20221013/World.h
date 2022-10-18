@@ -9,11 +9,9 @@ class AActor;
 
 class FWorld
 {
-
 public:
 	FWorld();
 	~FWorld();
-
 	vector<AActor*> ActorList;
 	void SpawnActor(AActor* NewActor);
 	void DestroyActor(AActor* DeleteActor);
@@ -21,5 +19,7 @@ public:
 	void Tick(); 
 	void BeginPlay();
 	void EndPlay();
+	void Terminate();
+	bool bTerminateCalled;
 };
 

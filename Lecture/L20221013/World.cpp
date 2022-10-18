@@ -2,85 +2,87 @@
 #include "Actor.h"
 #include <algorithm>
 
-FWorld::FWorld()
+
+FWorld::FWorld() : bTerminateCalled(false)
 {
 }
 
 FWorld::~FWorld()
 {
-	for (auto Value : ActorList)
-	{
-		if (Value)
-		{
-			delete Value;
-		}
-	}
-
-	ActorList.clear();
+    Terminate();
 }
 
+void FWorld::Terminate()
+{
+    bTerminateCalled = true;
+    for (int i = 0; i < ActorList.size(); i++)
+    {
+        if (ActorList[i]) { delete ActorList[i]; }
+    }
+    ActorList.clear();
+}
 
 void FWorld::SpawnActor(AActor* NewActor)
 {
-	if (NewActor)
-	{
-		ActorList.push_back(NewActor);
-	}
+    if (NewActor && !bTerminateCalled)
+    {
+        ActorList.push_back(NewActor);
+    }
 }
 
 void FWorld::DestroyActor(AActor* DeleteActor)
 {
-	//STL
-	if (DeleteActor)
-	{
-		ActorList.erase(find(ActorList.begin(), ActorList.end(), DeleteActor));
-
-		delete DeleteActor;
-	}
-
-	//for (auto iter = ActorList.begin(); iter != ActorList.end(); ++iter)
-	//{
-	//	if (*iter == DeleteActor)
-	//	{
-	//		ActorList.erase(iter);
-	//		break;
-	//	}
-	//}
+    if (DeleteActor && !bTerminateCalled)
+    {
+        ActorList.erase(find(ActorList.begin(), ActorList.end(), DeleteActor));
+        delete DeleteActor;
+    }
 }
 
 void FWorld::Render()
 {
-	for (auto Value : ActorList)
-	{
-		Value->Render();
-	}
+    if (!bTerminateCalled)
+    {
+        for (int i = 0; i < ActorList.size(); i++)
+        {
+            if (ActorList[i]) { ActorList[i]->Render(); }
+            if (bTerminateCalled) { break; }
+        }
+    }
 }
 
 void FWorld::Tick()
 {
-	for (auto Value : ActorList)
-	{
-		Value->Tick();
-	}
+    if (!bTerminateCalled)
+    {
+        for (int i = 0; i < ActorList.size(); i++)
+        {
+            if (ActorList[i]) { ActorList[i]->Tick(); }
+            if (bTerminateCalled) { break; }
+        }
+    }
 }
 
 void FWorld::BeginPlay()
 {
-	//World BeginPlay
-
-	for (auto Value : ActorList)
-	{
-		Value->BeginPlay();
-	}
+    if (!bTerminateCalled)
+    {
+        for (int i = 0; i < ActorList.size(); i++)
+        {
+            if (ActorList[i]) { ActorList[i]->BeginPlay(); }
+            if (bTerminateCalled) { break; }
+        }
+    }
 }
 
 void FWorld::EndPlay()
 {
-	for (auto Value : ActorList)
-	{
-		Value->EndPlay();
-	}
-
-	//World EndPlay
+    if (!bTerminateCalled)
+    {
+        for (int i = 0; i < ActorList.size(); i++)
+        {
+            if (ActorList[i]) { ActorList[i]->EndPlay(); }
+            if (bTerminateCalled) { break; }
+        }
+    }
 }
-

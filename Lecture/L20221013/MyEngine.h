@@ -21,6 +21,9 @@ public:
         return Instance;
     }
     int GetRandNumber(int MinValue, int MaxValue);
+    bool LoadNextLevel();
+    bool LoadCurrentLevel();
+    
 protected:
     //싱글톤 인스턴스, MyEngine.cpp에서 Nullptr로 초기화해준다. 
     static MyEngine* Instance;

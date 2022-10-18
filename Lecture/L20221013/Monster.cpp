@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "Goal.h"
 #include "Wall.h"
+#include "Text.h"
 
 using namespace std;
 
@@ -17,7 +18,9 @@ AMonster::AMonster()
 	LoadBMP("Data/Slime.bmp");
 	CollisionType = ECollisionType::QueryOnly;
 	ElapsedTime = 0;
-	ExecuteTime = 500 + (Uint64)GEngine->GetRandNumber(-100, 200);
+	ExecuteTime = 1000;
+	bTouched = false;
+	//ExecuteTime = (500 - ((Uint64)GEngine->MyGameState->CurrentLevelIndex * 150)) + (Uint64)GEngine->GetRandNumber(-100, 200);
 }
 
 AMonster::AMonster(int NewX, int NewY)
@@ -33,59 +36,74 @@ AMonster::~AMonster()
 
 void AMonster::Tick()
 {
-	ElapsedTime += GEngine->GetWorldDeltaSeconds();
-	if (ElapsedTime > ExecuteTime)
+	if (!bTouched)
 	{
-		ElapsedTime = 0;
-
-		int Direction = GEngine->GetRandNumber(0, 4);
-
-		switch (Direction)
+		ElapsedTime += GEngine->GetWorldDeltaSeconds();
+		if (ElapsedTime > ExecuteTime)
 		{
-			case 0: //W(UP)
+			ElapsedTime = 0;
+
+			int Direction = GEngine->GetRandNumber(0, 4);
+
+			switch (Direction)
 			{
-				Y--;
-				if (!PredictCanMove())
-				{
-					Y++;
-				}
-				break;
-			}
-			case 1: //A(Left)
-			{
-				X--;
-				if (!PredictCanMove())
-				{
-					X++;
-				}
-				break;
-			}
-			case 2: //S(Right)
-			{
-				Y++;
-				if (!PredictCanMove())
+				case 0: //W(UP)
 				{
 					Y--;
+					if (!PredictCanMove())
+					{
+						Y++;
+					}
+					break;
 				}
-				break;
-			}
-			case 3: //D(Down)
-			{
-				X++;
-				if (!PredictCanMove())
+				case 1: //A(Left)
 				{
 					X--;
+					if (!PredictCanMove())
+					{
+						X++;
+					}
+					break;
 				}
+				case 2: //S(Right)
+				{
+					Y++;
+					if (!PredictCanMove())
+					{
+						Y--;
+					}
+					break;
+				}
+				case 3: //D(Down)
+				{
+					X++;
+					if (!PredictCanMove())
+					{
+						X--;
+					}
+					break;
+				}
+			}
+		}
+		for (AActor* Actor : GEngine->GetAllActors())
+		{
+			if (X == Actor->X && Y == Actor->Y && dynamic_cast<APlayer*>(Actor))
+			{
+				string content = GEngine->MyGameState->GetCurrentLevelName() + " ´ÙÀÌ!";
+				GEngine->SpawnActor(new AText(100, 100, content.c_str(), 30));
+				GEngine->MyGameState->bPlayerCanMove = false;
+				ExecuteTime = 3000;
+				bTouched = true;
 				break;
 			}
 		}
 	}
-	for (AActor* Actor : GEngine->GetAllActors())
+	else
 	{
-		if (X == Actor->X && Y == Actor->Y && dynamic_cast<APlayer*>(Actor))
+		ElapsedTime += GEngine->GetWorldDeltaSeconds();
+		if (ElapsedTime > ExecuteTime)
 		{
-			cout << "YOU LOSE!" << endl;
-			GEngine->QuitGame();
+			GEngine->LoadCurrentLevel();
 		}
 	}
 }

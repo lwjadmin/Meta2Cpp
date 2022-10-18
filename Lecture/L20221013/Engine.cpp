@@ -1,5 +1,7 @@
 #include <fstream>
 #include <algorithm>
+#include <iostream>
+
 #include "Engine.h"
 #include "World.h"
 #include "Player.h"
@@ -7,71 +9,101 @@
 #include "Wall.h"
 #include "Goal.h"
 #include "Monster.h"
-
+#include "Text.h"
+#include "SoundActor.h"
 
 using namespace std;
 
-int Engine::KeyCode = 0;
-
 Engine::Engine()
+    :
+    MyWindow(nullptr),
+    MyRenderer(nullptr),
+    MyGameState(nullptr),
+    MyWorld(nullptr),
+    bIsRunning(false),
+    LastTick(0),
+    DeltaSeconds(0)
 {
-	MyWorld = new FWorld();
-	bIsRunning = true;
-	SDLInitialize();
+    do
+    {
+        if (SDL_Init(SDL_INIT_EVERYTHING) != 0) { break; }
+        if (TTF_Init() != 0) { break; }
+        if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) != 0) { break; }
+        bIsRunning = true;
+    } while (false);
+
+    if (!bIsRunning)
+    {
+        SDL_Log("SDL Loading Failed. Engine Unloaded.");
+        exit(-1);
+    }
+    else
+    {
+        MyGameState = new FGameState();
+    }
 }
 
-void Engine::SDLInitialize()
+void Engine::SDLInitialize(int TilePixelSize, int XWidth, int YHeight)
 {
-	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
-	{
-		SDL_Log("SDL_Init_Error");
-		exit(-1);
-	}
-	MyWindow = SDL_CreateWindow("MyGame", 100, 100, 600, 600, SDL_WINDOW_VULKAN);
-	//MyRenderer = SDL_CreateRenderer(MyWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
+	/*------------------------------------------------------------------------
+	SDL_WINDOW_VULKAN : Vulkan 사용
+	SDL_WINDOW_OPENGL : OpenGL 사용
+	------------------------------------------------------------------------*/
+	MyWindow = SDL_CreateWindow("2DSpriteGame", 100, 100, (TilePixelSize * XWidth), (TilePixelSize * YHeight), SDL_WINDOW_VULKAN);
+	
+	/*-----------------------------------------------------------------------
+	SDL_RENDERER_SOFTWARE    : CPU 렌더링
+	SDL_RENDERER_ACCELERATED : GPU 렌더링
+	-----------------------------------------------------------------------*/
 	MyRenderer = SDL_CreateRenderer(MyWindow, -1, SDL_RENDERER_SOFTWARE | SDL_RENDERER_TARGETTEXTURE);
-
 }
 
 void Engine::SDLTerminate()
 {
-	SDL_DestroyRenderer(MyRenderer);
-	SDL_DestroyWindow(MyWindow);
-	SDL_Quit();
+	SDL_DestroyRenderer(MyRenderer); //SAFE_DELETE 내장
+	SDL_DestroyWindow(MyWindow); //SAFE_DELETE 내장
+}
+
+void Engine::SpawnActor(AActor* NewActor)
+{
+    if (MyWorld)
+    {
+        MyWorld->SpawnActor(NewActor);
+    }
 }
 
 Engine::~Engine()
 {
-	delete MyWorld;
-
-	SDLTerminate();
+    if (MyWorld) { delete MyWorld; MyWorld = nullptr; SDLTerminate(); }
+    if (MyGameState) { delete MyGameState; MyGameState = nullptr; }
+    Mix_CloseAudio();
+    TTF_Quit();
+    SDL_Quit();
 }
 
 void Engine::BeginPlay()
 {
-	MyWorld->BeginPlay();
+    if (bIsRunning) { MyWorld->BeginPlay(); }
 }
 
 void Engine::EndPlay()
 {
-	MyWorld->EndPlay();
+    if (bIsRunning) { MyWorld->EndPlay(); }
 }
 
 void Engine::Run()
 {
-	BeginPlay();
-
-	while (bIsRunning)
-	{
-		DeltaSeconds = SDL_GetTicks64() - LastTick;
-
-		Input();
-		Tick();
-		LastTick = SDL_GetTicks64();
-		Render();
-	}
-
-	EndPlay();
+    BeginPlay();
+    while (bIsRunning)
+    {
+        DeltaSeconds = SDL_GetTicks64() - LastTick;
+        Input();
+        SDL_Log(to_string(MyWorld->ActorList.size()).c_str());
+        Tick();
+        LastTick = SDL_GetTicks64();
+        Render();
+    }
+    EndPlay();
 }
 
 void Engine::QuitGame()
@@ -79,64 +111,101 @@ void Engine::QuitGame()
 	bIsRunning = false;
 }
 
-void Engine::Load(string MapFilename)
+bool GetMapSize(string MapFileName, int* OutXWidth, int* OutYHeight)
 {
-	char Data[100];
-	ifstream MapFile(MapFilename);
+    ifstream MapFile(MapFileName);
+    bool bOpenSuccess = false;
+    int XWidth = 0;
+    int YHeight = 0;
+    if (MapFile.fail())
+    {
+        cout << "MapFile Not Found, Can't Get MapSize" << endl;
+        XWidth = YHeight = -1;
+    }
+    else
+    {
+        char Data[100] = { 0, };
+        while (MapFile.getline(Data, sizeof(Data)))
+        {
+            if (YHeight == 0) { XWidth = (int)strlen(Data); }
+            YHeight++;
+        }
+        bOpenSuccess = true;
+        *OutXWidth = XWidth;
+        *OutYHeight = YHeight;
+    }
+    return bOpenSuccess;
+}
 
-	int Y = 0;
-	while (MapFile.getline(Data, 100))
-	{
-		for (int X = 0; X < strlen(Data); ++X)
-		{
-			if (Data[X] == '*')
-			{
-				MyWorld->SpawnActor(new AWall(X, Y));
-				MyWorld->SpawnActor(new AFloor(X, Y));
-			}
-			else if (Data[X] == 'P')
-			{
-				MyWorld->SpawnActor(new APlayer(X, Y));
-				MyWorld->SpawnActor(new AFloor(X, Y));
-			}
-			else if (Data[X] == 'G')
-			{
-				MyWorld->SpawnActor(new AGoal(X, Y));
-				MyWorld->SpawnActor(new AFloor(X, Y));
-			}
-			else if (Data[X] == ' ')
-			{
-				MyWorld->SpawnActor(new AFloor(X, Y));
-			}
-			else if (Data[X] == 'M')
-			{
-				MyWorld->SpawnActor(new AMonster(X, Y));
-				MyWorld->SpawnActor(new AFloor(X, Y));
-			}
-		}
-		Y++;
-	}
-	MapFile.close();
+void Engine::UnloadLevel()
+{
+    SDLTerminate();
+    if (MyWorld)
+    {
+        MyWorld->Terminate();
+        delete MyWorld;
+    }
+    
+    
+}
 
-	//Sort
-	SortActor();
+bool Engine::LoadLevel(string MapFilename)
+{
+    bool bLoadSuccess = false;
+	int MapXWidth = 0;
+	int MapYHeight = 0;
+
+    if (GetMapSize(MapFilename, &MapXWidth, &MapYHeight))
+    {
+        UnloadLevel();
+        char Data[100] = { 0, };
+        ifstream MapFile(MapFilename);
+        MyWorld = new FWorld();
+        SDLInitialize(60, MapXWidth, MapYHeight);
+        int Y = 0;
+        while (MapFile.getline(Data, sizeof(Data)))
+        {
+            for (int X = 0; X < strlen(Data); ++X)
+            {
+                if (Data[X] == '*')
+                {
+                    MyWorld->SpawnActor(new AWall(X, Y));
+                    MyWorld->SpawnActor(new AFloor(X, Y));
+                }
+                else if (Data[X] == 'P')
+                {
+                    MyWorld->SpawnActor(new APlayer(X, Y));
+                    MyWorld->SpawnActor(new AFloor(X, Y));
+                }
+                else if (Data[X] == 'G')
+                {
+                    MyWorld->SpawnActor(new AGoal(X, Y));
+                    MyWorld->SpawnActor(new AFloor(X, Y));
+                }
+                else if (Data[X] == ' ')
+                {
+                    MyWorld->SpawnActor(new AFloor(X, Y));
+                }
+                else if (Data[X] == 'M')
+                {
+                    MyWorld->SpawnActor(new AMonster(X, Y));
+                    MyWorld->SpawnActor(new AFloor(X, Y));
+                }
+            }
+            Y++;
+        }
+        MapFile.close();
+        SortActor();
+        SpawnActor(new ASoundActor("./data/bgm.mp3", true));
+        bLoadSuccess = true;
+        MyGameState->bPlayerCanMove = true;
+    }
+    return bLoadSuccess;
 }
 
 void Engine::SortActor()
 {
 	sort(MyWorld->ActorList.begin(), MyWorld->ActorList.end(), AActor::Compare);
-	//for (int i = 0; i < MyWorld->ActorList.size(); ++i)
-	//{
-	//	for (int j = i; j < MyWorld->ActorList.size(); ++j)
-	//	{
-	//		if (MyWorld->ActorList[i]->ZOrder > MyWorld->ActorList[j]->ZOrder)
-	//		{
-	//			AActor* Temp = MyWorld->ActorList[i];
-	//			MyWorld->ActorList[i] = MyWorld->ActorList[j];
-	//			MyWorld->ActorList[j] = Temp;
-	//		}
-	//	}
-	//}
 }
 
 vector<AActor*>& Engine::GetAllActors()
@@ -147,7 +216,6 @@ vector<AActor*>& Engine::GetAllActors()
 void Engine::Input()
 {
 	SDL_PollEvent(&MyEvent);
-	//	Engine::KeyCode = _getch();
 }
 
 void Engine::Tick()
@@ -157,20 +225,13 @@ void Engine::Tick()
 		bIsRunning = false;
 	}
 	MyWorld->Tick();
-	//SDL_Log("%d", DeltaSeconds);
 }
 
 void Engine::Render()
 {
-	//system("cls");
-	SDL_Color BackgroundColor = { 0, 0, 0 ,0 };
-	SDL_SetRenderDrawColor(MyRenderer, BackgroundColor.r, BackgroundColor.g, BackgroundColor.b, BackgroundColor.a);
-	SDL_RenderClear(MyRenderer);
-
-	MyWorld->Render();
-
-
-	SDL_RenderPresent(MyRenderer);
-
-
+    SDL_Color BackgroundColor = { 0, 0, 0 ,0 };
+    SDL_SetRenderDrawColor(MyRenderer, BackgroundColor.r, BackgroundColor.g, BackgroundColor.b, BackgroundColor.a);
+    SDL_RenderClear(MyRenderer);
+    if (MyWorld) { MyWorld->Render(); }
+    SDL_RenderPresent(MyRenderer);
 }
