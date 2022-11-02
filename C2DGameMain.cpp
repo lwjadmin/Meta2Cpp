@@ -23,8 +23,8 @@ int C2DGameMain()
     return 0;
 }
 
-//int C2DGameMain_main(int argc, char* argv[])
-int main(int argc, char* argv[])
+int C2DGameMain_main(int argc, char* argv[])
+//int main(int argc, char* argv[])
 {
     return C2DGameMain();
 }

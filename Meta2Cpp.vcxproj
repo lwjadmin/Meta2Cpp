@@ -145,6 +145,10 @@
     <ClCompile Include="FC2DMonster.cpp" />
     <ClCompile Include="FC2DPlayer.cpp" />
     <ClCompile Include="L20221005_1.cpp" />
+    <ClCompile Include="L20221031.cpp" />
+    <ClCompile Include="L20221102_DFS.cpp" />
+    <ClCompile Include="TCPClient.cpp" />
+    <ClCompile Include="TCPServer.cpp" />
     <ClCompile Include="Pixel.cpp" />
     <ClCompile Include="L20221004_1.cpp" />
     <ClCompile Include="L20221004_2.cpp" />

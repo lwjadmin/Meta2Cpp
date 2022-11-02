@@ -159,6 +159,18 @@
     <ClCompile Include="FC2DMonster.cpp">
       <Filter>소스 파일\My2DGame</Filter>
     </ClCompile>
+    <ClCompile Include="L20221031.cpp">
+      <Filter>소스 파일\Lecture</Filter>
+    </ClCompile>
+    <ClCompile Include="TCPServer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TCPClient.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="L20221102_DFS.cpp">
+      <Filter>소스 파일\Lecture</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaekjoonOJ.h">
