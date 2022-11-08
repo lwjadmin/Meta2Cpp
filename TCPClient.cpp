@@ -61,7 +61,8 @@ int main(int argc, char* argv[])
                 bConnectionSuccess = true;
             }
         }
-
+#pragma region --EXAM_01---------------------------------------------------------------
+        /*
         //--SEND---------------------------------------------------------------------
         memset(Buffer, 0, PACKET_SIZE);
         cout << "[SYS]Insert Message : ";
@@ -93,6 +94,25 @@ int main(int argc, char* argv[])
         {
             break;
         }
+        */
+#pragma  endregion
+#pragma  region --EXAM_02---------------------------------------------------
+        //--RECV---------------------------------------------------------------------
+        cout << "[SYS]Waiting For Message...";
+        memset(Buffer, 0, PACKET_SIZE);
+        int RecvBytes = recv(ClientSocket, Buffer, sizeof(Buffer), 0);
+        if (RecvBytes <= 0)
+        {
+            cout << "\n[ERR]ClientSocket Recv Error : " << GetLastError() << endl;
+            bConnectionSuccess = false;
+            continue;
+        }
+        cout << "OK\n[SYS]Client Received Message : " << Buffer << endl;
+        if (Buffer[0] == 'E' && Buffer[1] == 'X' && Buffer[2] == 'I' && Buffer[3] == 'T')
+        {
+            break;
+        }
+#pragma  endregion
     }
     if (ClientSocket) { closesocket(ClientSocket); ClientSocket = NULL; }
     WSACleanup();
