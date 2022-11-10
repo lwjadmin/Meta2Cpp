@@ -4,9 +4,6 @@
 #include <string>
 #include <iostream>
 #include <WinSock2.h>
-#include <afxwin.h>
-#include <afxext.h>
-#include <afxcmn.h>
 
 using namespace std;
 
@@ -35,7 +32,8 @@ int GetFileSizeBytes(const char* filename)
     return size;
 }
 
-int main(int argc, char* argv[])
+int NetworkServerCpp_main(int argc, char* argv[])
+//int main(int argc, char* argv[])
 {
     bool bExitCalled = false;
     bool bConnectionSuccess = false;

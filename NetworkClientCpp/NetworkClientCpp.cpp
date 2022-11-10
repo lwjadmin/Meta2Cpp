@@ -19,8 +19,8 @@ struct MessagePack
     int NumB;
 };
 
-int main(int argc, char* argv[])
-//int NetworkClientCpp_main(int argc, char* argv[])
+//int main(int argc, char* argv[])
+int NetworkClientCpp_main(int argc, char* argv[])
 {
     bool bExitCalled = false;
     bool bConnectionSuccess = false;
