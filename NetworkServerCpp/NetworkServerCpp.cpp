@@ -12,7 +12,7 @@ using namespace std;
 #define SERVER_IPV4 "0.0.0.0" /*"127.0.0.1"*/
 #define SERVER_PORT 5001
 #define PACKET_SIZE 1024
-
+ 
 struct MessagePack
 {
     int NumA;
