@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="2DGameServer">
+      <UniqueIdentifier>{c0f28380-c717-4246-bc7c-de6b9a805283}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NetworkServerCpp.cpp">
@@ -33,10 +36,25 @@
     <ClCompile Include="L20221108_SimpleTCPServer.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="UDPFileTransferServer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="L20221118_TCPMultiplexingServer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="L20221118_TCPMultiThreadServer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="2DGameServer.cpp">
+      <Filter>2DGameServer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TCPServer.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="2DGameServer.h">
+      <Filter>2DGameServer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

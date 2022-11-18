@@ -89,7 +89,8 @@ int L20221108_SelectServer_main(int argc, char* argv)
                 else
                 {
                     char Buffer[1024] = { 0, };
-                    int recvLength = recv(reads.fd_array[i], Buffer, sizeof(Buffer) - 1, 0); //-1 : 무슨일이 있어도 NTS로 만들려고
+                    SOCKET thisClientSocket = reads.fd_array[i];
+                    int recvLength = recv(thisClientSocket, Buffer, sizeof(Buffer) - 1, 0); //-1 : 무슨일이 있어도 NTS로 만들려고
 
                     //messageList.push_back(Buffer);
                     cout << "Client Send Message : " << Buffer << endl;
@@ -97,24 +98,18 @@ int L20221108_SelectServer_main(int argc, char* argv)
                     if (recvLength <= 0) //ClientSocket이 정상종료되었거나(0) 에러났을경우(-1)
                     {
                         //원본 fd_set 구조체 원본(reads)에서 빼고 소켓 닫는다.
-                        SOCKET disconnectSocket = reads.fd_array[i];
-                        FD_CLR(disconnectSocket, &reads);
-                        closesocket(disconnectSocket);
+                        FD_CLR(thisClientSocket, &reads);
+                        closesocket(thisClientSocket);
                     }
                     else
                     {
                         for (int j = 0; j < (int)reads.fd_count; j++)
                         {
-                            if (reads.fd_array[j] != listenSocket)
+                            if (reads.fd_array[j] != listenSocket && j == i)
                             {
-                                //리슨소켓이 아닐경우 버퍼에 있는 내용을 
-                                //for (int i = 0; i < messageList.size(); i++)
-                                //{
-                                //    messageList[i]
-                                //}
-
-                                int sendLength = send(reads.fd_array[i], Buffer, recvLength, 0);
+                                continue;
                             }
+                            int sendLength = send(reads.fd_array[j], Buffer, recvLength, 0);
                         }
                     }
                 }

@@ -8,7 +8,7 @@ using namespace std;
 
 #pragma comment(lib, "WS2_32.lib") //WinSock2.DLL Load
 
-void main()
+int L20221108_SimpleTCPServer_main(int argc, char* argv[])
 {
     WSAData wsadata;
 
@@ -42,4 +42,5 @@ void main()
     closesocket(ServerSocket);
     //컴퓨터간 통신을 하기 위한 모듈을 다썼다고 운영체제한테 알려준다.
     WSACleanup();
+    return 0;
 }

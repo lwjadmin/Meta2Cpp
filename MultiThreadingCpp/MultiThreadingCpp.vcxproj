@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{1655d80a-772e-4b2e-9276-8daa2b150732}</ProjectGuid>
-    <RootNamespace>NetworkServerCpp</RootNamespace>
+    <ProjectGuid>{01ea73a9-f0b1-4a36-9187-f4b67a6d1e8e}</ProjectGuid>
+    <RootNamespace>MultiThreadingCpp</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -44,7 +44,6 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
-    <UseOfMfc>Static</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -128,20 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="2DGameServer.cpp" />
-    <ClCompile Include="L20221108_DNS.cpp" />
-    <ClCompile Include="L20221108_SelectServer.cpp" />
-    <ClCompile Include="L20221108_SimpleTCPServer.cpp" />
-    <ClCompile Include="L20221108_TCPServer.cpp" />
-    <ClCompile Include="L20221108_UDPServer.cpp" />
-    <ClCompile Include="L20221118_TCPMultiplexingServer.cpp" />
-    <ClCompile Include="L20221118_TCPMultiThreadServer.cpp" />
-    <ClCompile Include="NetworkServerCpp.cpp" />
-    <ClCompile Include="UDPFileTransferServer.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="2DGameServer.h" />
-    <ClInclude Include="TCPServer.h" />
+    <ClCompile Include="L20221118_MutexExam.cpp" />
+    <ClCompile Include="MultiThreadingCpp.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

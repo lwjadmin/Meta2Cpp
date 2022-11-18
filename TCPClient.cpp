@@ -12,7 +12,7 @@ using namespace std;
 #define SERVER_PORT 19934
 #define PACKET_SIZE 1024
 
-int main(int argc, char* argv[])
+int TCPClient_main(int argc, char* argv[])
 {
     bool bExitCalled = false;
     bool bConnectionSuccess = false;

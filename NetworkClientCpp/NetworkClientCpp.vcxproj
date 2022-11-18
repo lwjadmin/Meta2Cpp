@@ -131,7 +131,9 @@
     <ClCompile Include="L20221107_TCPClient.cpp" />
     <ClCompile Include="L20221108_SimpleTCPClient.cpp" />
     <ClCompile Include="L20221108_TCPClient.cpp" />
+    <ClCompile Include="L20221118_TCPClient.cpp" />
     <ClCompile Include="NetworkClientCpp.cpp" />
+    <ClCompile Include="UDPFileDownloadClient.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TCPClient.h" />

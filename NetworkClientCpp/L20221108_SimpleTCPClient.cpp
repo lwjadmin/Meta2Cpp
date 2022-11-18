@@ -10,7 +10,7 @@
 
 using namespace std;
 
-void main()
+int L20221108_SimpleTCPClient_main(int argc, char* argv[])
 {
     //컴퓨터간 통신을 하기 위한 모듈 깡통(구조체)을 준비한다.
     //컴퓨터간 통신을 하기 위한 모듈은 운영체제에서 관리한다.
@@ -96,4 +96,5 @@ void main()
     closesocket(ClientSocket);
     //컴퓨터간 통신을 하기 위한 모듈을 다썼다고 운영체제한테 알려준다.
     WSACleanup();
+    return 0;
 }
