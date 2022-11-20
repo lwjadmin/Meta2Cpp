@@ -22,6 +22,9 @@
     <Filter Include="HomeThread">
       <UniqueIdentifier>{71523292-5130-44bc-b65a-6a8aae69832f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="HomeDesignPattern">
+      <UniqueIdentifier>{1b7e617b-30df-429f-9e03-9a54d1944261}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NetworkServerCpp.cpp">
@@ -75,10 +78,31 @@
     <ClCompile Include="H20221120_Thread3.cpp">
       <Filter>HomeThread</Filter>
     </ClCompile>
+    <ClCompile Include="H20221120_DesignPattern1.cpp">
+      <Filter>HomeDesignPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="MyThread.cpp">
+      <Filter>HomeThread</Filter>
+    </ClCompile>
+    <ClCompile Include="MyProgram.cpp">
+      <Filter>HomeDesignPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="H20221120_TCPServer5.cpp">
+      <Filter>HomeServer</Filter>
+    </ClCompile>
+    <ClCompile Include="H20221120_TCPServer6.cpp">
+      <Filter>HomeServer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2DGameServer.h">
       <Filter>2DGameServer</Filter>
+    </ClInclude>
+    <ClInclude Include="MyThread.h">
+      <Filter>HomeThread</Filter>
+    </ClInclude>
+    <ClInclude Include="MyProgram.h">
+      <Filter>HomeDesignPattern</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

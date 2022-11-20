@@ -131,7 +131,10 @@
     <ClCompile Include="2DGameServer.cpp" />
     <ClCompile Include="H20221119_TCPServer2.cpp" />
     <ClCompile Include="H20221119_TCPServer3.cpp" />
+    <ClCompile Include="H20221120_DesignPattern1.cpp" />
     <ClCompile Include="H20221120_TCPServer4.cpp" />
+    <ClCompile Include="H20221120_TCPServer5.cpp" />
+    <ClCompile Include="H20221120_TCPServer6.cpp" />
     <ClCompile Include="H20221120_Thread1.cpp" />
     <ClCompile Include="H20221120_Thread2.cpp" />
     <ClCompile Include="H20221120_Thread3.cpp" />
@@ -142,12 +145,16 @@
     <ClCompile Include="L20221108_UDPServer.cpp" />
     <ClCompile Include="L20221118_TCPMultiplexingServer.cpp" />
     <ClCompile Include="L20221118_TCPMultiThreadServer.cpp" />
+    <ClCompile Include="MyProgram.cpp" />
+    <ClCompile Include="MyThread.cpp" />
     <ClCompile Include="NetworkServerCpp.cpp" />
     <ClCompile Include="UDPFileTransferServer.cpp" />
     <ClCompile Include="H20221119_TCPServer1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2DGameServer.h" />
+    <ClInclude Include="MyProgram.h" />
+    <ClInclude Include="MyThread.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
