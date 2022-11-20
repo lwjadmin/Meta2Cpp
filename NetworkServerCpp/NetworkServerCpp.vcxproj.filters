@@ -16,6 +16,12 @@
     <Filter Include="2DGameServer">
       <UniqueIdentifier>{c0f28380-c717-4246-bc7c-de6b9a805283}</UniqueIdentifier>
     </Filter>
+    <Filter Include="HomeServer">
+      <UniqueIdentifier>{87f6748b-5332-423b-acc0-39725dcaa50d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HomeThread">
+      <UniqueIdentifier>{71523292-5130-44bc-b65a-6a8aae69832f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NetworkServerCpp.cpp">
@@ -48,11 +54,29 @@
     <ClCompile Include="2DGameServer.cpp">
       <Filter>2DGameServer</Filter>
     </ClCompile>
+    <ClCompile Include="H20221119_TCPServer1.cpp">
+      <Filter>HomeServer</Filter>
+    </ClCompile>
+    <ClCompile Include="H20221119_TCPServer2.cpp">
+      <Filter>HomeServer</Filter>
+    </ClCompile>
+    <ClCompile Include="H20221119_TCPServer3.cpp">
+      <Filter>HomeServer</Filter>
+    </ClCompile>
+    <ClCompile Include="H20221120_TCPServer4.cpp">
+      <Filter>HomeServer</Filter>
+    </ClCompile>
+    <ClCompile Include="H20221120_Thread1.cpp">
+      <Filter>HomeThread</Filter>
+    </ClCompile>
+    <ClCompile Include="H20221120_Thread2.cpp">
+      <Filter>HomeThread</Filter>
+    </ClCompile>
+    <ClCompile Include="H20221120_Thread3.cpp">
+      <Filter>HomeThread</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TCPServer.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="2DGameServer.h">
       <Filter>2DGameServer</Filter>
     </ClInclude>

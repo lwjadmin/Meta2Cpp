@@ -47,7 +47,9 @@ unsigned WINAPI WorkerThread(void* Arg)
     return 0;
 }
 
-int main(int argc, char* argv[])
+
+int L20221118_TCPMultiThreadServer_main(int argc, char* argv[])
+//int main(int argc, char* argv[])
 {
     InitializeCriticalSection(&GServerCS);
     WSAData wsadata;
