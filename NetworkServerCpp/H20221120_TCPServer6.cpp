@@ -7,6 +7,7 @@
     [TODO_3] 클라에서 최초접속 시 ReqAllMsgList & OnRecvQueue : ResAllMsgList 처리
     [TODO_4] 클래스로 만들어보기!!
 ----------------------------------------------------------------*/
+/*
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <WinSock2.h>
@@ -175,7 +176,7 @@ unsigned OnSend(void* args)
     return 0;
 }
 
-int main(int argc, char* argv[])
+int H20221120_TCPServer6_main(int argc, char* argv[])
 {
     InitializeCriticalSection(&CS_RCV);
     InitializeCriticalSection(&CS_SND);
@@ -218,3 +219,4 @@ int main(int argc, char* argv[])
     WSACleanup();
     return 0;
 }
+*/

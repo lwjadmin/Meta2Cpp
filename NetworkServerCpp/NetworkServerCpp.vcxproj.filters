@@ -93,6 +93,9 @@
     <ClCompile Include="H20221120_TCPServer6.cpp">
       <Filter>HomeServer</Filter>
     </ClCompile>
+    <ClCompile Include="H20221121_TCPServer7.cpp">
+      <Filter>HomeServer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2DGameServer.h">

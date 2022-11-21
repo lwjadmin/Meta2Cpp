@@ -138,6 +138,7 @@
     <ClCompile Include="H20221120_Thread1.cpp" />
     <ClCompile Include="H20221120_Thread2.cpp" />
     <ClCompile Include="H20221120_Thread3.cpp" />
+    <ClCompile Include="H20221121_TCPServer7.cpp" />
     <ClCompile Include="L20221108_DNS.cpp" />
     <ClCompile Include="L20221108_SelectServer.cpp" />
     <ClCompile Include="L20221108_SimpleTCPServer.cpp" />

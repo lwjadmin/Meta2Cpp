@@ -16,7 +16,7 @@
        ProcessRecvQueueThread : Network Recv Ã³¸®
 
 ---------------------------------------------------------------*/
-
+/*
 #define _WINSOCK_DEPRECATED_NO_WARNINGS
 
 //CHeader
@@ -90,7 +90,7 @@ int H20221120_TCPServer4_main(int argc, char* argv[])
     TCPServerAddress.sin_addr.S_un.S_addr = inet_addr(SERVER_IPV4);
     TCPServerAddress.sin_port = htons(SERVER_PORT);
 
-    TCPServerSocket = socket(AF_INET, SOCK_STREAM, 0/*IPPROTO_TCP*/);
+    TCPServerSocket = socket(AF_INET, SOCK_STREAM, 0);
     if (TCPServerSocket == INVALID_SOCKET)
     {
         cout << "[ERR] TCPSocket Creation Failed! ErrorCode : " << GetLastError() << endl;
@@ -186,3 +186,4 @@ int H20221120_TCPServer4_main(int argc, char* argv[])
     cout << "[SYS] TCPServer Network Finished." << endl;
     return 0;
 }
+*/

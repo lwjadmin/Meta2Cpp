@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{9400b789-628b-42d7-89ca-d9d6be750020}</ProjectGuid>
-    <RootNamespace>NetworkClientCpp</RootNamespace>
+    <ProjectGuid>{52569eb8-065c-44ac-86bf-21b8dcd46652}</ProjectGuid>
+    <RootNamespace>NetworkClient</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="TCPClient.h" />
+    <ClCompile Include="H20221121_NetClientV1.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

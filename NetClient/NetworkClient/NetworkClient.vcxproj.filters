@@ -15,8 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TCPClient.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
+    <ClCompile Include="H20221121_NetClientV1.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
