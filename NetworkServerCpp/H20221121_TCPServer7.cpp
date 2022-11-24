@@ -53,6 +53,7 @@ unsigned OnProcessRecvQ(void* args)
             else
             {
                 EnterCriticalSection(&CS_SendQueue);
+                cout << "[Server] : " << QItem.second << endl;
                 SendQueue.push(make_pair(NULL, QItem.second));
                 LeaveCriticalSection(&CS_SendQueue);
             }
@@ -64,24 +65,24 @@ unsigned OnProcessRecvQ(void* args)
 
 unsigned OnRecvMessage(void* args)
 {
-    SOCKET SocketClient = *(SOCKET*)args;
+    SOCKET *SocketClient = (SOCKET*)args;
     char Buffer[PACKET_SIZE] = { 0, };
     int RecvBytes = 0;
     while (true)
     {
         memset(Buffer, 0, sizeof(Buffer));
         //In Order to Make Buffer Null Terminated String, Minus 1
-        RecvBytes = recv(SocketClient, Buffer, sizeof(Buffer) - 1, 0);
+        RecvBytes = recv(*SocketClient, Buffer, sizeof(Buffer) - 1, 0);
         if (RecvBytes <= 0)
         {
             EnterCriticalSection(&CS_ClientList);
-            ClientList.erase(find(ClientList.begin(), ClientList.end(), SocketClient));
+            ClientList.erase(find(ClientList.begin(), ClientList.end(), *SocketClient));
             LeaveCriticalSection(&CS_ClientList);
             break;
         }
         //1.
         EnterCriticalSection(&CS_ClientList);
-        RecvQueue.push(make_pair(SocketClient, Buffer));
+        RecvQueue.push(make_pair(*SocketClient, Buffer));
         LeaveCriticalSection(&CS_ClientList);
         //2.
         EnterCriticalSection(&CS_MsgList);
@@ -186,7 +187,7 @@ int main(int argc, char* argv[])
     bind(SocketServer, (sockaddr*)&ServerAddress, sizeof(ServerAddress));
     listen(SocketServer, SOMAXCONN);
     
-    HandleSend = (HANDLE)_beginthreadex(nullptr, 0, OnSendMessage, nullptr, 0, nullptr);
+    //HandleSend = (HANDLE)_beginthreadex(nullptr, 0, OnSendMessage, nullptr, 0, nullptr);
     HandleSendQ = (HANDLE)_beginthreadex(nullptr, 0, OnProcessSendQ, nullptr, 0, nullptr);
     HandleRecvQ = (HANDLE)_beginthreadex(nullptr, 0, OnProcessRecvQ, nullptr, 0, nullptr);
 

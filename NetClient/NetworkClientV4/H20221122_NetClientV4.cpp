@@ -86,7 +86,7 @@ unsigned OnSendMessage(void* args)
     while (G_ProgramRunning)
     {
         getline(cin, Msg);
-        if (strcmp(Msg.c_str(), "EXIT") == 0)
+        if (strcmp(Msg.c_str(), "#CLIENT_EXIT") == 0)
         {
             G_ProgramRunning = false;
             break;
