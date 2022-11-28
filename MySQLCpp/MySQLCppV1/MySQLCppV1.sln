@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32804.467
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MySQLCppV1", "MySQLCppV1.vcxproj", "{88D75C95-8D95-429A-A1AC-2C65231E061C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88D75C95-8D95-429A-A1AC-2C65231E061C}.Debug|x64.ActiveCfg = Debug|x64
+		{88D75C95-8D95-429A-A1AC-2C65231E061C}.Debug|x64.Build.0 = Debug|x64
+		{88D75C95-8D95-429A-A1AC-2C65231E061C}.Debug|x86.ActiveCfg = Debug|Win32
+		{88D75C95-8D95-429A-A1AC-2C65231E061C}.Debug|x86.Build.0 = Debug|Win32
+		{88D75C95-8D95-429A-A1AC-2C65231E061C}.Release|x64.ActiveCfg = Release|x64
+		{88D75C95-8D95-429A-A1AC-2C65231E061C}.Release|x64.Build.0 = Release|x64
+		{88D75C95-8D95-429A-A1AC-2C65231E061C}.Release|x86.ActiveCfg = Release|Win32
+		{88D75C95-8D95-429A-A1AC-2C65231E061C}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F8E1A77-21FE-42FD-9BBA-5A37CB501592}
+	EndGlobalSection
+EndGlobal

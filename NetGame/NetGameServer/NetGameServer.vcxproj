@@ -130,7 +130,7 @@
     <ClCompile Include="NetGameServer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MessagePack.h" />
+    <ClInclude Include="MessagePacket.h" />
     <ClInclude Include="PlayerData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
